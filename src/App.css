@@ -1,4 +1,6 @@
 .App {
+  background-color: black;
+  color: white;
   text-align: center;
 }
 
@@ -35,4 +37,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.div-item-character {
+  width: 315px;
+  height: 315px;
+  margin: 5px;
+  padding: 10px;
+  background-color: aliceblue;
+  color: rgb(0, 0, 0);
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+  border: 3px solid rgb(232, 233, 236);
+  border-radius: 3px;
+}
+
+.characters-container {
+  text-align: center;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.button {
+  margin:0;
+  border: none;
+  width: 50px;
+  height: 50px
+}
+
+.button:hover {
+  border: 1px solid white;
+  background-color: rgb(146, 145, 145);
 }
