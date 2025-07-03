@@ -9,7 +9,7 @@ export const useFetchCharacters = ({ endPoint }) => {
     const baseUrl = 'https://rickandmortyapi.com/api/'
     const fetchCharacters = async (url) => {
         try {
-            const response = await fetch(url);
+            const response = await fetch(url); // variable url da undefined, si se le pasa el endpoint hardcodeado anda.
             const data = await response.json()
             setCharacters(data.results);
             setIsLoading(false)
