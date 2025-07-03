@@ -5,9 +5,7 @@ function App() {
    
    return (
       <>
-
-         <CharactersList></CharactersList>
-
+         <CharactersList endPoint='character'></CharactersList>
       </>
    )
 }

@@ -1,12 +1,13 @@
 import {useEffect, useState} from 'react'
 
-export const useFetchCharacters = ({ endPoint }) => {
+export const useFetchCharacters = (endPoint) => {
 
     const [characters, setCharacters] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [nextPage, setnextPage] = useState('')
     const [prevPage, setprevPage] = useState([])
     const baseUrl = 'https://rickandmortyapi.com/api/'
+
     const fetchCharacters = async (url) => {
         try {
             const response = await fetch(url); // variable url da undefined, si se le pasa el endpoint hardcodeado anda.
