@@ -10,7 +10,7 @@ export const useFetchCharacters = (endPoint) => {
 
     const fetchCharacters = async (url) => {
         try {
-            const response = await fetch(url); // variable url da undefined, si se le pasa el endpoint hardcodeado anda.
+            const response = await fetch(url);
             const data = await response.json()
             setCharacters(data.results);
             setIsLoading(false)
