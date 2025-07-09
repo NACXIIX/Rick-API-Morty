@@ -1,9 +1,9 @@
 import ButtonPrevNext from "./ButtonPrevNext"
 import CharacterItem from "./CharacterItem";
-import { useFetchCharacters } from "./hooks/useFetchCharacters";
+import { useFetchData } from "./hooks/useFetchData";
 
 function CharactersList({ endPoint }) {
-   const { characters, isLoading, handleClickNext, handleClickPrev } = useFetchCharacters(endPoint)
+   const { characters, isLoading, handleClickNext, handleClickPrev } = useFetchData(endPoint)
 
    return (
       <>

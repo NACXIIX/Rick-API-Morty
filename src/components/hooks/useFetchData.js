@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 
-export const useFetchCharacters = (endPoint) => {
+export const useFetchData = (endPoint) => {
 
     const [characters, setCharacters] = useState([])
     const [isLoading, setIsLoading] = useState(true)
@@ -8,7 +8,7 @@ export const useFetchCharacters = (endPoint) => {
     const [prevPage, setprevPage] = useState([])
     const baseUrl = 'https://rickandmortyapi.com/api/'
 
-    const fetchCharacters = async (url) => {
+    const fetchData = async (url) => {
         try {
             const response = await fetch(url);
             const data = await response.json()
@@ -22,16 +22,15 @@ export const useFetchCharacters = (endPoint) => {
     }
 
     useEffect(() => {
-        fetchCharacters(`${baseUrl}${endPoint}`);
+        fetchData(`${baseUrl}${endPoint}`);
     }, [endPoint])
-
-
+    
     const handleClickNext = () => {
-        nextPage && fetchCharacters(nextPage);
+        nextPage && fetchData(nextPage);
      }
   
      const handleClickPrev = () => {
-        prevPage && fetchCharacters(prevPage);
+        prevPage && fetchData(prevPage);
      }
   
     return {
