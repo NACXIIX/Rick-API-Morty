@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import { useFetchCharacter } from './hooks/useFetchCharacter'
+import searchCharacterFunction from './hooks/searchCharacter'
 
 export const SearchCharacter = () => {
     const [inputSearch, setInputSearch] = useState("")
