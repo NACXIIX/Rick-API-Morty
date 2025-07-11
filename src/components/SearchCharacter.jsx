@@ -35,6 +35,8 @@ export const SearchCharacter = () => {
         onChange={onChange}/>
         <button onClick={handleClickSearch}>Buscar</button>
         
+
+        {/* Lo de abajo es para testear que la funcionalidad este correcta */ }
         {characterfound && <p>Encontrado</p>}
 
         <ul>
