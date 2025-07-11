@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react'
 
 export const useFetchCharacter = (endPoint, foundCharactersList) => {
-    
+    let numberPage = 1
+    const [pageQuery, setPageQuery] = useState(`?page=${numberPage}`)
     const [characters, setCharacters] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const baseUrl = 'https://rickandmortyapi.com/api/'
@@ -12,6 +13,7 @@ export const useFetchCharacter = (endPoint, foundCharactersList) => {
             const data = await response.json()
             setCharacters(data.results);
             setIsLoading(false)
+
         } catch (error) {
             console.log(`Error: ${error}`)
         }
@@ -19,7 +21,7 @@ export const useFetchCharacter = (endPoint, foundCharactersList) => {
 
     useEffect(() => {
         fetchCharacter(`${baseUrl}${endPoint}`);
-    }, [endPoint])
+    }, [endPoint,foundCharactersList, pageQuery])
 
     return {
         setCharacters,
