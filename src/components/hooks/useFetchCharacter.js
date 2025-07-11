@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
-export const useFetchCharacter = (endPoint) => {
+
+export const useFetchCharacter = (endPoint, foundCharactersList) => {
+    
     const [characters, setCharacters] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const baseUrl = 'https://rickandmortyapi.com/api/'
@@ -17,7 +19,7 @@ export const useFetchCharacter = (endPoint) => {
 
     useEffect(() => {
         fetchCharacter(`${baseUrl}${endPoint}`);
-    }, [])
+    }, [endPoint])
 
     return {
         setCharacters,

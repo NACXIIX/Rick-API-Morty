@@ -5,12 +5,10 @@ import { searchCharacterFunction } from './hooks/searchCharacterFunction'
 export const SearchCharacter = () => {
     const [inputSearch, setInputSearch] = useState("")
     const [newCharacters, setnewCharacters] = useState([])
-    const {characters} = useFetchCharacter('character')
+    const {characters} = useFetchCharacter('character', newCharacters)
     const [characterfound, setCharacterFound] = useState(false)
     
-
     const searchingCharacter = searchCharacterFunction(inputSearch, characters.map(character => character.name))
-
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -22,9 +20,11 @@ export const SearchCharacter = () => {
     }
     
     const handleClickSearch = () => {
-        setCharacterFound(searchingCharacter.found)
-        setnewCharacters(searchingCharacter.new_array)
-        
+        if (!inputSearch) return 
+        setnewCharacters([])
+        setCharacterFound(searchingCharacter.characterFound)
+        setnewCharacters([searchingCharacter.newCharacters])
+        console.log(newCharacters)
     }
 
   return (
@@ -36,6 +36,11 @@ export const SearchCharacter = () => {
         <button onClick={handleClickSearch}>Buscar</button>
         
         {characterfound && <p>Encontrado</p>}
+
+        <ul>
+        {newCharacters.map(newCharacter => <li> {newCharacter} - </li>)}
+        </ul>
+
     </form>
   )
 }
