@@ -24,7 +24,6 @@ export const useFetchCharacter = (endPoint, foundCharactersList) => {
     }, [endPoint,foundCharactersList, pageQuery])
 
     return {
-        setCharacters,
         characters,
         isLoading,
     }
